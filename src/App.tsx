@@ -42,7 +42,7 @@ function Envelope({ onOpen, isOpen }: { onOpen: () => void; isOpen: boolean }) {
         <Heart className={`absolute text-red-500 transition-all duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`} size={48} />
       </div>
       <div className="text-center mt-4">
-        <p className="text-gray-600 font-medium">{isOpen ? 'With Love ❤️' : 'Click để Mở'}</p>
+        <p className="text-gray-600 font-medium">{isOpen ? 'Thân Gửi ❤️' : 'Click để Mở'}</p>
       </div>
     </div>
   );
@@ -152,7 +152,7 @@ function App() {
                     <SparkleEffect />
                     <div className="space-y-6">
                       <p className="text-gray-700 leading-relaxed text-lg">
-                        To my dearest,
+                        Gửi đến Mật Ong,
                       </p>
                       <p className="text-gray-700 leading-relaxed text-lg">
                       Vào ngày đặc biệt này, anh muốn nói với em rằng em có ý nghĩa như thế nào đối với anh. Nụ cười của em làm bừng sáng những ngày đen tối nhất của anh, tình yêu của em cho anh sức mạnh và sự hiện diện của em làm cuộc sống của anh trở nên trọn vẹn. Em không chỉ là bạn gái của anh, mà còn là bạn thân nhất, là người bạn tâm giao và là chỗ dựa lớn nhất của anh.
