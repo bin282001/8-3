@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+@keyframes open-envelope {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(180deg); }
+}
+
+@keyframes slide-letter {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  box-shadow: 0 0 10px #FFD700;
+}
+
+.sparkle-container {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sparkle-1 { animation: sparkle 3s infinite 0.1s ease-out; }
+.sparkle-2 { animation: sparkle 4s infinite 0.3s ease-out; }
+.sparkle-3 { animation: sparkle 3.5s infinite 0.5s ease-out; }
+.sparkle-4 { animation: sparkle 4.5s infinite 0.7s ease-out; }
+
+.floating-rose {
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.5));
+}
+
+.rotate-slow {
+  animation: rotate 20s linear infinite;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 2px solid rgba(255, 182, 193, 0.5);
+  border-radius: 50%;
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+.wave {
+  animation: wave 2s ease-in-out infinite;
+}
+
+.glass-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.envelope {
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.02);
+}
+
+.envelope-flap {
+  transform-origin: top;
+  transition: transform 0.8s ease;
+}
+
+.envelope.open .envelope-flap {
+  animation: open-envelope 0.8s forwards;
+}
+
+.letter-content {
+  transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.letter-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fade-in 1s ease forwards;
+}
+
+.memory-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.memory-card:hover {
+  transform: translateY(-10px) rotateY(5deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.memory-card:hover .memory-overlay {
+  opacity: 1;
+}
+
+.memory-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
