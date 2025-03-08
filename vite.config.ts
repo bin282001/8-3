@@ -7,4 +7,11 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    host: "0.0.0.0", // Cho phép truy cập từ mọi IP
+    strictPort: true,
+  },
+  preview: {
+    allowedHosts: ["chuc-bao-boi-8-3-dui-de.onrender.com"],
+  },
 });
